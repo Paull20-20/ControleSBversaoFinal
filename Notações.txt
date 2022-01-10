@@ -1,0 +1,27 @@
+Primeiro vamos em python.org e instalamos o python mais recente, instale tbm o pip
+
+Conferimos no terminal com python --version e pip --version
+
+se estiver instalado, agr instalamos a virtualenv com: pip install virtualenv
+
+agr instalamos o django
+
+com isso criamos uma pasta com: mkdir testeenv, depois entramos dentro da pasta com: cd testeenv/
+
+agr criamos nossa virtualenv com: virtualenv myenv
+
+agr acessamos a virtualenv com: source myenv/Scripts/activate
+Se aparecer (myenv) significa que ela está ativada e estamos dentro de um ambiente isolado do nosso source
+
+Agr por fim, instalamos o django dentro da nossa virtualenv com: pip install django
+Testamos se o django instalou com o  comando: django-admin --version
+
+Agr criamos nosso Primeiro projeto com: django-admin startproject nomeProjeto
+digitamos ls e entramos dentro do projeto criado usando o comando cd, ex cd nomeProjeto
+
+Comando para rodar o projeto em um server embutido do django: python manage.py runserver
+Após rodar esse comando acessamos a url localhost:8000 
+
+
+
+

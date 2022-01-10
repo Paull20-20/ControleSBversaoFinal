@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Editando solicitação do: '{{task.nomeItem}}'{% endblock %}
+
+{% block content %}
+
+            <tr>
+               <h1>Editando solicitação do: {{task.nomeItem}}</h1>
+               <form method="POST" >
+                    {% csrf_token %}
+                    {{ form.as_p }} 
+                    <input type="submit" class="btn btn-sucess" value="Editar">
+               </form>
+            </tr>
+
+
+{% endblock %}

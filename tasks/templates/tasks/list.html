@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de tarefas{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+/*Estilização do messages (alertas de ações)*/
+    ul.messages{
+        padding: 0;
+    }
+
+    ul.messages li{
+        list-style: none;
+    }
+
+/*Estilização da paginação*/
+.pagination{
+    margin-bottom: 20px;
+}
+
+.step-links{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-links .current{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+</style>
+
+
+
+<br>
+<br>
+<br>
+<div class="container" >
+    <h3>Solicite um item</h3>
+</div>
+<br>
+<br>
+<br>
+
+            <div class="container" >
+                <label>Página de solicitação de itens..</label>
+                <br>
+                <br>
+                <br>
+                <a href="newtask/" >
+                    <div class="col-md-2 botao">
+                        <button type="button" class="btn btn-primary botao">Solicitar</button>
+                    </div>
+                </a>
+                <br>
+                <br>
+                
+             </div>
+            <div class="container" >
+                 <input class="form-control" id="myInput" type="text" placeholder="Pesquisar por itens..." >
+                 
+            </div>
+           
+        </div>
+        
+        
+    </div>
+
+    
+
+    <br>
+    <br>
+    <br>
+    <div class="container" >
+     <h4>Lista de itens solicitados</h4>
+    </div>
+    <br>
+    <br>
+    <br>
+ 
+
+    <div class="container" >
+    <div class="tabela">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Data da solicitação</th>
+                <th>Nome do item</th>
+                <th>Quantidade</th>
+                <th>Status</th>
+                <th>Ações</th>
+                <th></th>
+                <th></th>
+                
+            </tr>
+            </thead>
+
+            {% if messages %}
+            <!--Messagens de alerta de interação ao editar e excluir item-->
+                <ul class="messages" >
+                    {% for message in messages %}
+                        <li {% if message.tags  %}class="alert alert-{{message.tags}}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+
+            {% endif %}
+
+            <tbody id="myTable" class="alinhar">
+     
+            {% for task in tasks %}
+
+            <tr>
+                <td>{{task.created_at}}</a></td>
+                <td>{{task.nomeItem}}</a></td>
+                <td>{{task.quantidade}}</a></td>
+                <td>{{task.status}}</a></td>
+                <!--<td><a href="/task/{{task.id}}" >{{task.status}}</a></td>-->
+        
+                <td> 
+                    <a href="edit/{{task.id}}" ><button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button></a>
+                </td>
+                <td>
+                    <a href="delete/{{task.id}}" class="delete-btn" ><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+<!--
+            <tr>
+                <td>26/11/2021</td>
+                <td>Celular Samsung A01</td>
+                <td>Celular Samsung</td>
+                <td>20</td>
+                <td>Comprado</td>
+                <td> 
+                    <button type="button" class="btn btn-primary" onclick="editar()">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" onclick="excluir()">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>26/11/2021</td>
+                <td>Monitor dell</td>
+                <td>Celular Samsung</td>
+                <td>15</td>
+                <td>Recebido</td>
+                <td> 
+                    <button type="button" class="btn btn-primary" onclick="editar()">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" onclick="excluir()">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+           
+           -->
+            </tbody>
+        </table>
+
+        <div class="pagination" >
+            <span class="step-links" >
+                <!--Lógica para página anterior-->
+                {% if tasks.has_previous %}
+                    <a href="?page={{ tasks.previous_page_number }}" ><i class="fas fa-arrow-left" ></i></a>
+                {% endif %}
+
+                <!--Span mostrando a página atual do usuário-->
+                <span class="current" >
+                    {{ tasks.number }} de {{ tasks.paginator.num_pages }}
+                </span>
+
+                <!--Lógica para página posterior-->
+                {% if tasks.has_next %}
+                    <a href="?page={{ tasks.next_page_number }}" ><i class="fas fa-arrow-right" ></i></a>
+                {% endif %}
+            </span>
+        </div>
+        
+        </div>
+    </div>
+
+        <script>
+            $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>
+    
+
+{% endblock %}

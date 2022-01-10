@@ -1,0 +1,64 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Entrar no sistema{% endblock %}
+
+{% block content %}
+
+<style>
+    
+.auth.card{
+    margin-bottom: 30px;
+}
+
+div.ajuste{
+    text-align: center;
+}
+
+div.ajuste input{
+    width: 50%;
+}
+
+div button.ajusteBtn{
+    width: 50%;
+    
+}
+
+div.ajusteRow{
+    margin-bottom: 25px;
+   
+}
+
+</style>
+
+        <div class="row ajusteRow" >
+            <div class="col-md-4 offset-md-4">
+                <div class="card auth-card">
+                    <div class="card-body" >
+                        <h4 class="card-title text-center" >Logar</h4>
+                        <br>
+                        
+                        <div class="ajuste" >
+                            <form method="post" >
+                                {% csrf_token %}
+                                <label>Usuário*</label>
+                                <br>
+                                <input type="text" name="next"  value="{{ next }}">
+                                <br>
+                                <br>
+                                <label>Senha*</label>
+                                <br>
+                                <input type="text" >
+                                <br>
+                                <br>
+                                <button type="submit" class="container btn btn-primary btn-block ajusteBtn" >Entrar</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+
+{% endblock %}

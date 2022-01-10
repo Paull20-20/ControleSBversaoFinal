@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block title %}Painel de controle{% endblock %}
+
+{% block content %}
+
+
+<style>
+    h3{
+        text-align: center;
+        
+    }
+
+    div.tabela{
+        width: 60%;
+        margin-left: 410px;
+    }
+
+</style>
+
+
+<br>
+<br>
+<br>
+<h3 class="painel" >Lista de solicitações abaixo</h3>
+<br>
+<br>
+<br>
+
+
+<div class="tabela">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Data da solicitação</th>
+            <th>Tipo do item</th>
+            <th>Nome do item</th>
+            <th>Quantidade</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+            
+        </tr>
+        </thead>
+        <tbody id="myTable" class="alinhar">
+
+            <tr>
+                <td>26/11/2020</td>
+                <td>Notebook acer</td>
+                <td>Notebook dell</td>
+                <td>6</td>
+                <td> 
+                    <div class="form-row teste1">
+                        <div class="form-group col-md-6">
+                          <select id="trabalho" class="form-control">
+                            <option value="" selected>Escolher...</option>
+                            <option value="Layout">Comprado</option>
+                            <option value="Mod Layout">Aguardando orçamento</option>
+                            <option value="Retificação Layout">Recebido</option>
+                            
+                          </select>
+                        </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success">Atualizar</button>
+                </td>
+              
+            </tr>
+
+            
+            <tr>
+                <td>26/11/2020</td>
+                <td>Notebook acer</td>
+                <td>Notebook dell</td>
+                <td>6</td>
+                <td> 
+                    <div class="form-row teste1">
+                        <div class="form-group col-md-6">
+                          <select id="trabalho" class="form-control">
+                            <option value="" selected>Escolher...</option>
+                            <option value="Layout">Comprado</option>
+                            <option value="Mod Layout">Aguardando orçamento</option>
+                            <option value="Retificação Layout">Recebido</option>
+                            
+                          </select>
+                        </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success">Atualizar</button>
+                </td>
+              
+            </tr>
+    
+ 
+        <tr>
+            <td>26/11/2020</td>
+            <td>Notebook acer</td>
+            <td>Notebook dell</td>
+            <td>6</td>
+            <td> 
+                <div class="form-row teste1">
+                    <div class="form-group col-md-6">
+                      <select id="trabalho" class="form-control">
+                        <option value="" selected>Escolher...</option>
+                        <option value="Layout">Comprado</option>
+                        <option value="Mod Layout">Aguardando orçamento</option>
+                        <option value="Retificação Layout">Recebido</option>
+                        
+                      </select>
+                    </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success">Atualizar</button>
+            </td>
+          
+        </tr>
+
+        <tr>
+            <td>26/11/2021</td>
+            <td>Celular Samsung A01</td>
+            <td>Notebook dell</td>
+            <td>20</td>
+            <td> 
+                <div class="form-row teste1">
+                    <div class="form-group col-md-6">
+                      <select id="trabalho" class="form-control">
+                        <option value="" selected>Escolher...</option>
+                        <option value="Layout">Comprado</option>
+                        <option value="Mod Layout">Aguardando orçamento</option>
+                        <option value="Retificação Layout">Recebido</option>
+                        
+                      </select>
+                    </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success">Atualizar</button>
+            </td>
+          
+        </tr>
+
+        <tr>
+            <td>26/11/2021</td>
+            <td>Monitor dell</td>
+            <td>Notebook dell</td>
+            <td>15</td>
+            <td> 
+                <div class="form-row teste1">
+                    <div class="form-group col-md-6">
+                      <select id="trabalho" class="form-control">
+                        <option value="" selected>Escolher...</option>
+                        <option value="Layout">Comprado</option>
+                        <option value="Mod Layout">Aguardando orçamento</option>
+                        <option value="Retificação Layout">Recebido</option>
+                        
+                      </select>
+                    </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success">Atualizar</button>
+            </td>
+           
+        </tr>
+       
+       
+        </tbody>
+    </table>
+    
+    </div>
+
+    
+     
+
+{% endblock %}
