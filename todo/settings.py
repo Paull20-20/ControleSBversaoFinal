@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-import django_on_heroku
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,13 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x8gdek=mjbh)zb^eqp*n%5iy9k00koex3t447+xs*2-&d^snjo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # Essa opção só fica ativada enquanto o sitema estiver em desenvolvimento, após feito o deploy deve ser retirado!
+DEBUG = True # Essa opção só fica ativada enquanto o sitema estiver em desenvolvimento, após feito o deploy deve ser retirado!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://control-interno.herokuapp.com/'] #url que terá acesso ao projeto
 
 
 # Application definition
-
 
 
 INSTALLED_APPS = [
@@ -156,4 +155,4 @@ USE_TZ = False
 
 
 
-django_on_heroku.settings(locals())
+django_heroku.settings(locals())
