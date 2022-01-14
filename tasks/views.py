@@ -75,9 +75,8 @@ def deleteTask(request, id):
     return redirect('/')
 
 
-@login_required
-def helloWorld(request):
-    return HttpResponse('Primeiro Hello world com django!') #passando mensagem direto
+#def helloWorld(request):
+#    return HttpResponse('Primeiro Hello world com django!') #passando mensagem direto
 
 @login_required
 def painel(request):
