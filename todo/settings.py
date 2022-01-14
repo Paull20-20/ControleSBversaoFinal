@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x8gdek=mjbh)zb^eqp*n%5iy9k00koex3t447+xs*2-&d^snjo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Essa opção só fica ativada enquanto o sitema estiver em desenvolvimento, após feito o deploy deve ser retirado!
+DEBUG = False # Essa opção só fica ativada enquanto o sitema estiver em desenvolvimento, após feito o deploy deve ser retirado!
 
 ALLOWED_HOSTS = []
 
@@ -146,7 +146,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 # config da hora
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_Paulo ' 
+TIME_ZONE = 'Brazil/East' 
 
 USE_I18N = True
 
