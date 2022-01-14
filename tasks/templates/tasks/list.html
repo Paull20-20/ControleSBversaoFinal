@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Lista de tarefas{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
@@ -32,67 +32,190 @@
     margin-right: 5px;
 }
 
+
+/*filtro*/
+.filter-div{
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+#filter{
+    display: inline-block;
+    width: 200px;
+    margin-left: 10px;
+}
+
+div.ajusteFiltro{
+    margin-top: 25px;
+    text-align: center;
+}
+
+/*dashboard*/
+.dashboard{
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.dashboard h4{
+    font-size: 20px;
+}
+
+.dashboard span{
+    font-size: 40px;
+    display: block;
+    width: 100%;
+}
+
+.dashboard-box{
+    float: left;
+    background-color: #DFDFDF;
+    color: #FFF;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 130px;
+    width: 32%;
+    text-align: center;
+}
+
+.dashboard-box:nth-child(2){
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+
+#dashboard-lastdays{
+    background-color: #3476e2;
+}
+
+#dashboard-done{
+    background-color: #13c43f
+}
+
+#dashboard-doing{
+    background-color:#db1e47
+}
+
+#dashboard-done2{
+    background-color: #13c43f
+}
+
+.add-div {
+    background-color: #3476e2;
+    cursor: pointer;
+    display: inline-block;
+    color: #FFF;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+    width: 50px;
+}
+
+.fas.fa-plus{
+    color: #FFF;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+/*search*/
+.fas.fa-search{
+    position: absolute;
+    top: 12px;
+    right: 26px;
+}
+
+.search-div{
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/*
+.ajustePesquisar{
+    width: 50%;
+    margin-left: 188px;
+}*/
+
+
+div.botao{
+    text-align: center;
+}
+
 </style>
 
 
 
 <br>
 <br>
-<br>
-<div class="container" >
-    <h3>Solicite um item</h3>
-</div>
-<br>
-<br>
-<br>
 
+<div class="container titulo" >
+    <h5 class="text-uppercase font-weight-light text-monospace">Solicite um item</h5>
+</div>
+
+<br>
+<br>
             <div class="container" >
-                <label>Página de solicitação de itens..</label>
-                <br>
-                <br>
-                <br>
+             
                 <a href="newtask/" >
-                    <div class="col-md-2 botao">
-                        <button type="button" class="btn btn-primary botao">Solicitar</button>
-                    </div>
+                    
+                       <!-- <i class="fas fa-plus" aria-hidden="true"></i> Solicitar-->
+                        <button type="button" class="btn btn-primary botao text-uppercase font-weight-light text-monospace">Solicitar</button>
+                    
                 </a>
                 <br>
                 <br>
-                
-             </div>
-            <div class="container" >
-                 <input class="form-control" id="myInput" type="text" placeholder="Pesquisar por itens..." >
-                 
+                <br>
+                <br>
             </div>
-           
-        </div>
+
+       
+            <div class="col-12 container ajustePesquisar" >
+                <input class="form-control container" id="myInput" type="text" placeholder="Pesquisar por itens..." >
+                <!--<i class="fas fa-search" ></i>-->
+             </div>
+        
+             <br>
+        
+                
+        <!--
+        <div class="ajusteFiltro" >
+            <div class="col-12 filter-div" >
+                <span>Filtrar por:</span>
+                <select name="filter" id="filter" class="form-control">
+                    <option value="" >Escolha uma opção</option>
+                    <option value="Comprado" >Comprado</option>
+                    <option value="Aguardando Orçamento" >Aguardando Orçamento</option>
+                    <option value="Recebido" >Recebido</option>
+                </select>
+            </div>
+         </div>-->
         
         
     </div>
 
-    
-
-    <br>
     <br>
     <br>
     <div class="container" >
-     <h4>Lista de itens solicitados</h4>
+        <h5 class="text-uppercase font-weight-light text-monospace">Lista de itens solicitados</h5>
     </div>
     <br>
     <br>
     <br>
  
-
     <div class="container" >
     <div class="tabela">
         <table class="table">
             <thead>
-            <tr>
-                <th>Data da solicitação</th>
-                <th>Nome do item</th>
-                <th>Quantidade</th>
-                <th>Status</th>
-                <th>Ações</th>
+            <tr> 
+                <th style="text-align: center;" >Data</th>
+                <th style="text-align: center;" >Nome</th>
+                <th style="text-align: center;" >Quantidade</th>
+                <th style="text-align: center;" >Observação</th>
+                <th style="text-align: center;" >Orçamento01</th>
+                <th style="text-align: center;" >Orçamento02</th>
+                <th style="text-align: center;" >Orçamento03</th>
+                <th style="text-align: center;" >Status</th>
+                <th style="text-align: center;" >Ações</th>
                 <th></th>
                 <th></th>
                 
@@ -114,10 +237,19 @@
             {% for task in tasks %}
 
             <tr>
-                <td>{{task.created_at}}</a></td>
-                <td>{{task.nomeItem}}</a></td>
-                <td>{{task.quantidade}}</a></td>
-                <td>{{task.status}}</a></td>
+                <td style="text-align: center;" >{{task.created_at}}</td>
+                <td style="text-align: center;" >{{task.nomeItem}}</td>
+                <td style="text-align: center;" >{{task.quantidade}}</td>
+                <td style="text-align: center;" >{{task.observação}}</td>
+                <!--<td style="text-align: center;" ><a href="{{task.anexo01}}">anexo01</a></td>-->
+                <!--<th style="text-align: center;" ><a href="{{ task.anexo01}}">Ver</a></th>-->
+                <td style="text-align: center;" >{{task.orçamento01}}</td>
+                <td style="text-align: center;" >{{task.orçamento02}}</td>
+                <td style="text-align: center;" >{{task.orçamento03}}</td>
+
+                
+                
+                <td style="text-align: center;" >{{task.status}}</a></td>
                 <!--<td><a href="/task/{{task.id}}" >{{task.status}}</a></td>-->
         
                 <td> 
