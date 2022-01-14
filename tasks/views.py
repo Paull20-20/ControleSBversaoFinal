@@ -1,37 +1,47 @@
 from django.shortcuts import redirect, render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from .forms import TaskForm
 from django.contrib import messages #serve para criar mensagens a cada ação com interação no banco de dados
+import datetime
 
 from .models import Task
 
 #Aqui criamos uma constante e nela configuramos o que cada url deve fazer
 
+
+@login_required #Esse comando serve para proteger as urls, ou seja só acessa se estiver logado e autentidado
 def taskList(request):
     #chamar todas as nossas tasks do db para o template, chamamos o model e o django saberá o que pegar no banco
 
-    tasks_list = Task.objects.all().order_by('-created_at') #pegando todos os objects do banco, ordenando do mais novo para o mais antigo
+    #filter = request.GET.get('filter')
 
+    #tasks = Task.objects.filter(done=filter, user=request.user)
+
+    tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user) #pegando todos os objects do banco, ordenando do mais novo para o mais antigo
     
-    paginator = Paginator(tasks_list, 5)
+    
+    paginator = Paginator(tasks_list, 10)
     page = request.GET.get('page')
 
     tasks = paginator.get_page(page)
 
     return render(request, 'tasks/list.html', {'tasks': tasks}) #renderizando para um arquivo externo dentro da pasta templates, tasks
 
+@login_required
 def taskView(request, id):
     task = get_object_or_404(Task, pk=id) #primary key = id
     return render (request, 'tasks/task.html', {'tasks': task})
 
-
+@login_required
 def newTask(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
 
         if form.is_valid():
             task = form.save(commit=False) #vai esperar o processo de inserção de dados e esperar até que o user mande salvar
+            task.user = request.user
             task.save()
             return redirect('/') #redirecionando pra list.html
 
@@ -39,7 +49,7 @@ def newTask(request):
         form = TaskForm() #daqui jogamos ele pro front end
         return render(request, 'tasks/addtask.html', {'form': form})
 
-
+@login_required
 def editTask(request, id):
     task = get_object_or_404(Task, pk=id)
     form = TaskForm(instance=task)
@@ -57,7 +67,7 @@ def editTask(request, id):
     else:
         return render(request, 'tasks/edittask.html', {'form': form, 'task': task})
 
-
+@login_required
 def deleteTask(request, id):
     task = get_object_or_404(Task, pk=id)
     task.delete()
@@ -65,12 +75,20 @@ def deleteTask(request, id):
     return redirect('/')
 
 
-
+@login_required
 def helloWorld(request):
     return HttpResponse('Primeiro Hello world com django!') #passando mensagem direto
 
-
+@login_required
 def painel(request):
     return render(request, 'tasks/painel.html')
+
+
+#def uploads(request):
+ #   task = get_object_or_404(Task, pk=id)
+  #  return render(request, 'uploads/anexos/url/')
+
+
+
 
 

@@ -24,12 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x8gdek=mjbh)zb^eqp*n%5iy9k00koex3t447+xs*2-&d^snjo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # Essa opção só fica ativada enquanto o sitema estiver em desenvolvimento, após feito o deploy deve ser retirado!
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'tasks',
     'about',
     'users',
+    'accounts',
+    'crispy_forms',
 ]
 
 
@@ -123,6 +127,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Arquivos de media/upload
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads') 
+MEDIA_URL = '/uploads/' # Aqui basicamente gera um link para clicar e visualizar o anexo recebido/enviado!
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -131,3 +140,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
+
+# config da hora
+LANGUAGE_CODE = 'pt-br'
+
+TIME_ZONE = 'America/Sao_Paulo ' 
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = False
+
+
+
+

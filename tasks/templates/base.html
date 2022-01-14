@@ -20,6 +20,8 @@
 <body>
 
     <style>
+
+      
         .container-fluid{
             padding: 0;
         }
@@ -58,6 +60,17 @@
             position: relative;
         }*/
 
+        /* menu */
+#menu{
+    /* background-image: url(../../img/fundo.jpeg); */
+    background-color: #f3f3f7;
+    border-bottom: 2px solid #FFD700;
+}
+
+html, body{
+    background-color: #F8F8FF;
+}
+
     </style>
     
 
@@ -68,22 +81,38 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
                 <a class="navbar-brand" href="">
-                    <img src="../../img/sb.png" href="/" width="180"  alt="Logo"><!--lOGO AQUI-->
+                    <img src="../static/img/sb2.png" href="/" width="180"  alt="Logo"><!--lOGO AQUI-->
                 </a>
             
                 <div class="add">
                     <div class="collapse navbar-collapse menu" id="navbarTogglerDemo03">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
                            
+                            {% if user.is_authenticated %}
                             <li class="nav-item active">
-                                <a class="nav-link">Bem vindo, Tiago!</span></a>
+                                <a class="nav-link text-uppercase font-weight-light text-monospace">Bem vindo, colaborador!</span></a>
                             </li>
+                            
                             <li class="nav-item">
-                                <a class="nav-link" href="http://127.0.0.1:8000/admin/">Painel de controle</a>
+                                <a class="nav-link text-uppercase font-weight-light text-monospace" href="http://127.0.0.1:8000/admin/">Painel de controle</a>
                             </li>
+                              <!--Url de logout abaixo-->
+                            {% if user.is_authenticated %}
+                              <li class="nav-item">
+                                  <a class="nav-link text-uppercase font-weight-light text-monospace" href="/accounts/logout">Sair</a>
+                              </li>
+                            {% endif %}
+                            
+                            {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#" onclick="sair()" >Sair</a>
+                                <a class="nav-link" href="/accounts/login">Entrar</a>
                             </li>
+
+                            {% endif %}
+
+
+                          
+
                         </ul>
                     
                     </div>
