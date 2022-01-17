@@ -10,8 +10,8 @@ from . import views
 
 # Importação para não precisar criar uma url para visualizar os anexos 
 # ATENÇÃO: Só funciona em quanto está em desenvolvimento!!! Após deploy deve-se criar uma url mesmo
-#from django.conf import settings
-#from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls.static import static
 # ...
 
 urlpatterns = [
@@ -22,12 +22,14 @@ urlpatterns = [
     path('edit/<int:id>', views.editTask, name="edit-task"),
     path('delete/<int:id>', views.deleteTask, name="delete-task"),
     path('painel/', views.painel, name='painel'),
-    #path('uploads/anexos', views.uploads, name="uploads"),
+    path('uploads/anexos/', views.uploads, name="uploads"),
+    #path('anexos/', views.anexos, name="anexos"),
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Verificação para recuperar o anexo e visualizar!
 # ATENÇÃO: Só funciona em quanto está em desenvolvimento!!! Após deploy deve-se criar uma url mesmo
+
 #if settings.DEBUG:
  #   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -5,8 +5,9 @@ from django.http import HttpResponse
 from .forms import TaskForm
 from django.contrib import messages #serve para criar mensagens a cada ação com interação no banco de dados
 import datetime
-
 from .models import Task
+from django.core.files.storage import FileSystemStorage #import para visualizar anexos
+
 
 #Aqui criamos uma constante e nela configuramos o que cada url deve fazer
 
@@ -22,7 +23,7 @@ def taskList(request):
     tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user) #pegando todos os objects do banco, ordenando do mais novo para o mais antigo
     
     
-    paginator = Paginator(tasks_list, 10)
+    paginator = Paginator(tasks_list, 7)
     page = request.GET.get('page')
 
     tasks = paginator.get_page(page)
@@ -81,6 +82,14 @@ def deleteTask(request, id):
 @login_required
 def painel(request):
     return render(request, 'tasks/painel.html')
+
+
+def uploads(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
+    return render(request, 'upload.html')
 
 
 #def uploads(request):

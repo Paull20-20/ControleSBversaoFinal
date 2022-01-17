@@ -115,7 +115,7 @@
                    <!--<h2><span>Editando solicitação do: {{task.nomeItem}}</span></h2>-->
                    <h6 class="text-uppercase font-weight-light text-monospace">Editar solicitação do: {{task.nomeItem}}</h6>
                    <br>
-                   <form method="POST" >
+                   <form method="POST" enctype="multipart/form-data">
                       {% csrf_token %}
                       {{ form.as_p }} 
                       <br>

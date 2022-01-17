@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Anexos{% endblock %}
+
+{% block content %}
+
+<h2>Upload</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="document">
+    <button type="submit" >Uploade file</button>
+</form>
+
+{% endblock %}

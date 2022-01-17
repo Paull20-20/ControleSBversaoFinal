@@ -129,7 +129,7 @@ STATIC_URL = 'static/'
 
 # Arquivos de media/upload
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads') 
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads") #caminho absoluto da url
 MEDIA_URL = '/uploads/' # Aqui basicamente gera um link para clicar e visualizar o anexo recebido/enviado!
 
 # Default primary key field type
