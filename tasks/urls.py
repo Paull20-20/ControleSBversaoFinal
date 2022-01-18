@@ -22,8 +22,8 @@ urlpatterns = [
     path('edit/<int:id>', views.editTask, name="edit-task"),
     path('delete/<int:id>', views.deleteTask, name="delete-task"),
     path('painel/', views.painel, name='painel'),
-    path('uploads/anexos/', views.uploads, name="uploads"),
-    path('midia/', views.uploads, name="midia"),
+   # path('uploads/anexos/', views.uploads, name="uploads"),
+    path('midia/', views.midia, name="midia"),
     #path('anexos/', views.anexos, name="anexos"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

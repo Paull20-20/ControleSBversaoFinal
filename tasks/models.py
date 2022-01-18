@@ -16,9 +16,9 @@ class Task(models.Model):
     nomeItem = models.CharField(max_length=255)
     quantidade = models.IntegerField(blank=True, null=True)
     observação = models.CharField(max_length=255, null=True)
-    orçamento01 = models.FileField(upload_to='', null=True) #onde o upload irá ficar tem que ser definido no Media_Root (settigns.py do projeto todo) (quando o site tiver no servidor deve se especificar uma outra pasta)
-    orçamento02 = models.FileField(upload_to='', null=True) 
-    orçamento03 = models.FileField(upload_to='', null=True)
+    orçamento01 = models.FileField(upload_to='', blank=True, null=True) #onde o upload irá ficar tem que ser definido no Media_Root (settigns.py do projeto todo) (quando o site tiver no servidor deve se especificar uma outra pasta)
+    orçamento02 = models.FileField(upload_to='', blank=True, null=True) 
+    orçamento03 = models.FileField(upload_to='', blank=True, null=True)
     status = models.CharField(
         max_length=21, #aqui precisa ficar o nmr máximo de caracteres que o status terá (ou seja colocamos o nmr máximo da maior palavra)
         choices=STATUS,

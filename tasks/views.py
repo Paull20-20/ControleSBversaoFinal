@@ -84,7 +84,11 @@ def painel(request):
     return render(request, 'tasks/painel.html')
 
 
-def uploads(request):
+#def midia(request):
+ #   return render(request, 'Sem anexo no momento')
+
+
+def midia(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
