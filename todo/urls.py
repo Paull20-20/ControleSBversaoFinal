@@ -1,4 +1,6 @@
 #
+from django.conf import settings
+from django.conf.urls.static import static
 #from django import urls
 from django.conf import settings
 #from django.conf.urls import url
@@ -13,8 +15,7 @@ from django.urls import path, include
 from todo.settings import MEDIA_ROOT, MEDIA_URL
 
 #
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
 
@@ -25,7 +26,9 @@ urlpatterns = [
     #url(r'^uploads/(?<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
     
-]
+] 
+
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
