@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
-#Create your models here.  here now
+#Create your models here.  hello world
 
 #class criada
 class Task(models.Model):
