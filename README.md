@@ -13,10 +13,12 @@ Sessão de login (ok)
 
 Botão para solicitações de equipamentos (ok)
 
-Tabela com todos os itens solicitados com os campos de nome, data, hora, observação, quantidade e status (ok)
+Botões de ação (editar ou excluir) (ok)
+
+Tabela com todos os itens solicitados com os campos de solicitante, data, nome, quantidade, observação, orçamentos 1,2,3 e status (ok)
 
 Painel administrativo (ok)
 
-Página com todos as solicitações feitas de cada usuário ()
+Página com todas as solicitações feitas de cada usuário ()
 
 
