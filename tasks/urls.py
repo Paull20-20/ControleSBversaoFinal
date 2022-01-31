@@ -12,6 +12,7 @@ from . import views
 # ATENÇÃO: Só funciona em quanto está em desenvolvimento!!! Após deploy deve-se criar uma url mesmo
 from django.conf import settings
 from django.conf.urls.static import static
+
 # ...
 
 urlpatterns = [
@@ -25,6 +26,7 @@ urlpatterns = [
    # path('uploads/anexos/', views.uploads, name="uploads"),
     path('midia/', views.midia, name="midia"),
     #path('anexos/', views.anexos, name="anexos"),
+    path('solicitacoesGerais/', views.solicitacoesGerais, name="solicitacoesGerais"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

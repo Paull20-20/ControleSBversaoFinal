@@ -159,6 +159,10 @@ USE_L10N = True
 
 USE_TZ = False
 
-
+#O comando abaixo serve para deixar o crispy_forms estilizado com bootstrap4
+CRISPY_TEMPLATE_PACK = 'bootstrap4' #or bootstrap3
 
 django_heroku.settings(locals())
+
+
+

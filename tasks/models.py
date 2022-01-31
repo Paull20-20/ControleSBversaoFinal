@@ -8,6 +8,7 @@ class Task(models.Model):
     #agr criamos os campos que serão inseridos na tabela do db
 
     STATUS = (
+        ('solicitado', 'Solicitado'),
         ('Comprado', 'Comprado'),
         ('Aguardando Orçamento', 'Aguardando Orçamento'),
         ('Recebido', 'Recebido'),
@@ -20,7 +21,7 @@ class Task(models.Model):
     orçamento02 = models.FileField(upload_to='', blank=True, null=True) 
     orçamento03 = models.FileField(upload_to='', blank=True, null=True)
     status = models.CharField(
-        max_length=21, #aqui precisa ficar o nmr máximo de caracteres que o status terá (ou seja colocamos o nmr máximo da maior palavra)
+        max_length=22, #aqui precisa ficar o nmr máximo de caracteres que o status terá (ou seja colocamos o nmr máximo da maior palavra)
         choices=STATUS,
     )
 
@@ -35,7 +36,5 @@ class Task(models.Model):
     #mostrando nome do item no painel admin no lugar de mostrar tasks objects
     def __str__(self) -> str:
         return self.nomeItem
-
-    
 
     

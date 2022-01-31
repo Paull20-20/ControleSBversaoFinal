@@ -150,7 +150,8 @@ div.ajuste{
     <div class="box">
         
         <h6 class="text-uppercase font-weight-light text-monospace">Registre-se</h6>
-        
+        <br>
+     
         <form method="post">
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}">

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Todas as solicitações{% endblock %}
+
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<h5 class=" container text-uppercase font-weight-light text-monospace">Solicitações gerais</h5>
+<br>
+<br>
+<br>
+
+<div class="col-12 container ajustePesquisar" >
+    <input class="form-control container" id="myInput" type="text" placeholder="Pesquisar por solicitações gerais..." >
+    <!--<i class="fas fa-search" ></i>-->
+ </div>
+
+ <br>
+   
+<!--
+<div class="ajusteFiltro" >
+<div class="col-12 filter-div" >
+    <span>Filtrar por:</span>
+    <select name="filter" id="filter" class="form-control">
+        <option value="" >Escolha uma opção</option>
+        <option value="Comprado" >Comprado</option>
+        <option value="Aguardando Orçamento" >Aguardando Orçamento</option>
+        <option value="Recebido" >Recebido</option>
+    </select>
+</div>
+</div>-->
+
+</div>
+
+<br>
+<br>
+<div class="container" >
+    <h5 class="text-uppercase font-weight-light text-monospace">Todos os itens solicitados</h5>
+</div>
+<br>
+<br>
+<br>
+
+<div class="container" >
+<div class="tabela">
+<table class="table">
+<thead>
+<tr> 
+    <th style="text-align: center;" >Solicitante</th>
+    <th style="text-align: center;" >Data</th>
+    <th style="text-align: center;" >Nome</th>
+    <th style="text-align: center;" >Quantidade</th>
+    <th style="text-align: center;" >Observação</th>
+    <th style="text-align: center;" >Orçamento01</th>
+    <th style="text-align: center;" >Orçamento02</th>
+    <th style="text-align: center;" >Orçamento03</th>
+    <th style="text-align: center;" >Status</th>
+    <th></th>
+    <th></th>
+    
+</tr>
+</thead>
+
+
+<tbody id="myTable" class="alinhar">
+
+{% for task in tasks %}
+
+<tr>
+    <td style="text-align: center;" >{{task.user}}</td>
+    <td style="text-align: center;" >{{task.created_at}}</td>
+    <td style="text-align: center;" >{{task.nomeItem}}</td>
+    <td style="text-align: center;" >{{task.quantidade}}</td>
+    <td style="text-align: center;" >{{task.observação}}</td>
+    
+    <td style="text-align: center;" ><a href="/midia/{{task.orçamento01}}" >Clique aqui</a></td>
+    
+    <td style="text-align: center;" ><a href="/midia/{{task.orçamento02}}" >Clique aqui</a></td>
+  
+    <td style="text-align: center;" ><a href="/midia/{{task.orçamento03}}" >Clique aqui</a></td>
+    
+
+    
+    
+    <td style="text-align: center;" >{{task.status}}</a></td>
+    <!--<td><a href="/task/{{task.id}}" >{{task.status}}</a></td>-->
+
+
+</tr>
+{% endfor %}
+
+    </tbody>
+</table>
+
+
+
+
+
+{% endblock %}

@@ -137,6 +137,8 @@ div.ajusteFiltro{
 }*/
 
 
+
+
 div.botao{
     text-align: center;
 }
@@ -165,12 +167,22 @@ div.botao{
                 <br>
                 <br>
                 <br>
-                <br>
+                
+                <a href="solicitacoesGerais/" >
+            
+                    <!-- <i class="fas fa-plus" aria-hidden="true"></i> Solicitar-->
+                     <button type="button" class="btn btn-primary botao text-uppercase font-weight-light text-monospace">Todas as solicitações</button>
+                 
+                 </a>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
             </div>
 
        
             <div class="col-12 container ajustePesquisar" >
-                <input class="form-control container" id="myInput" type="text" placeholder="Pesquisar por itens..." >
+                <input class="form-control container" id="myInput" type="text" placeholder="Pesquise por solicitações feitas em sua conta..." >
                 <!--<i class="fas fa-search" ></i>-->
              </div>
         
@@ -200,13 +212,14 @@ div.botao{
     </div>
     <br>
     <br>
-    <br>
+ 
  
     <div class="container" >
     <div class="tabela">
         <table class="table">
             <thead>
             <tr> 
+                <th style="text-align: center;" >Solicitante</th>
                 <th style="text-align: center;" >Data</th>
                 <th style="text-align: center;" >Nome</th>
                 <th style="text-align: center;" >Quantidade</th>
@@ -237,6 +250,7 @@ div.botao{
             {% for task in tasks %}
 
             <tr>
+                <td style="text-align: center;" >{{task.user}}</td>
                 <td style="text-align: center;" >{{task.created_at}}</td>
                 <td style="text-align: center;" >{{task.nomeItem}}</td>
                 <td style="text-align: center;" >{{task.quantidade}}</td>
@@ -349,3 +363,6 @@ div.botao{
     
 
 {% endblock %}
+
+
+

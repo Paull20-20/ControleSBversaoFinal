@@ -22,8 +22,7 @@ def taskList(request):
 
     tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user) #pegando todos os objects do banco, ordenando do mais novo para o mais antigo
     
-    
-    paginator = Paginator(tasks_list, 7)
+    paginator = Paginator(tasks_list, 10)
     page = request.GET.get('page')
 
     tasks = paginator.get_page(page)
@@ -43,6 +42,7 @@ def newTask(request):
         if form.is_valid():
             task = form.save(commit=False) #vai esperar o processo de inserção de dados e esperar até que o user mande salvar
             task.user = request.user
+            task.status = 'Solicitado' #status já preenchido padrão com nome solicitado
             task.save()
             return redirect('/') #redirecionando pra list.html
 
@@ -95,6 +95,10 @@ def midia(request):
         fs.save(uploaded_file.name, uploaded_file)
     return render(request, 'upload.html')
 
+@login_required
+def solicitacoesGerais(request):
+    tasks_list = Task.objects.all().order_by('-created_at')
+    return render(request, 'tasks/gerais.html', {'tasks': tasks_list})
 
 #def uploads(request):
  #   task = get_object_or_404(Task, pk=id)
