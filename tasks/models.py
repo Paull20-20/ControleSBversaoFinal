@@ -35,6 +35,6 @@ class Task(models.Model):
 
     #mostrando nome do item no painel admin no lugar de mostrar tasks objects
     def __str__(self) -> str:
-        return self.nomeItem
+        return self.nome_item
 
     
