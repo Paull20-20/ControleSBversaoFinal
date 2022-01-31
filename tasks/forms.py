@@ -6,7 +6,7 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ('nome_do_item', 'quantidade', 'observação')  #campos que queremos que apareça no front end
+        fields = ('nome_item', 'quantidade', 'observação')  #campos que queremos que apareça no front end
 
 
 
