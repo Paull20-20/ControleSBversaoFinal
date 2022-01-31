@@ -14,7 +14,7 @@ class Task(models.Model):
         ('Recebido', 'Recebido'),
     )
 
-    nome_item = models.CharField(max_length=255)
+    nomeItem = models.CharField(max_length=255)
     quantidade = models.IntegerField(blank=True, null=True)
     observação = models.CharField(max_length=255, null=True)
     orçamento01 = models.FileField(upload_to='', blank=True, null=True) #onde o upload irá ficar tem que ser definido no Media_Root (settigns.py do projeto todo) (quando o site tiver no servidor deve se especificar uma outra pasta)
@@ -35,6 +35,6 @@ class Task(models.Model):
 
     #mostrando nome do item no painel admin no lugar de mostrar tasks objects
     def __str__(self) -> str:
-        return self.nome_item
+        return self.nomeItem
 
     
