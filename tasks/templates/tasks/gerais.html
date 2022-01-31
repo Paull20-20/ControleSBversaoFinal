@@ -13,13 +13,15 @@
 <br>
 <br>
 
+
 <div class="col-12 container ajustePesquisar" >
-    <input class="form-control container" id="myInput" type="text" placeholder="Pesquisar por solicitações gerais..." >
+    <input class="form-control container" id="myInput" type="text" placeholder="Pesquise por solicitações feitas em sua conta..." >
     <!--<i class="fas fa-search" ></i>-->
  </div>
 
  <br>
-   
+
+    
 <!--
 <div class="ajusteFiltro" >
 <div class="col-12 filter-div" >
@@ -33,16 +35,17 @@
 </div>
 </div>-->
 
+
 </div>
 
 <br>
 <br>
 <div class="container" >
-    <h5 class="text-uppercase font-weight-light text-monospace">Todos os itens solicitados</h5>
+<h5 class="text-uppercase font-weight-light text-monospace">Lista de itens solicitados</h5>
 </div>
 <br>
 <br>
-<br>
+
 
 <div class="container" >
 <div class="tabela">
@@ -64,6 +67,15 @@
 </tr>
 </thead>
 
+{% if messages %}
+<!--Messagens de alerta de interação ao editar e excluir item-->
+    <ul class="messages" >
+        {% for message in messages %}
+            <li {% if message.tags  %}class="alert alert-{{message.tags}}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
 
 <tbody id="myTable" class="alinhar">
 
@@ -84,19 +96,41 @@
     
 
     
-    
     <td style="text-align: center;" >{{task.status}}</a></td>
     <!--<td><a href="/task/{{task.id}}" >{{task.status}}</a></td>-->
 
-
 </tr>
+
 {% endfor %}
 
-    </tbody>
+
+</tbody>
 </table>
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+$("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+});
+});
+</script>
 
 
 {% endblock %}
