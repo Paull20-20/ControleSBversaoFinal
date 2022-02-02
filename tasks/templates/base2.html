@@ -62,9 +62,24 @@
 
         /* menu */
 #menu{
-    /* background-image: url(../../img/fundo.jpeg); */
-    background-color: #f3f3f7;
+    /* background-image: url(../../img/fundo.jpeg); rgb(49, 50, 67) #f3f3f7;*/
+    background-color: rgb(49, 50, 67);
     border-bottom: 2px solid #FFD700;
+}
+
+
+html, body{
+    background-color: #ffffff;
+}
+
+/*Faz o footer ficar fixo no final da página*/
+footer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    margin-top: 70px;
+    width: 100%;
+  
 }
 
     </style>
@@ -77,7 +92,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
                 <a class="navbar-brand" href="">
-                    <img src="../static/img/sb2.png" href="/" width="180"  alt="Logo"><!--lOGO AQUI-->
+                    <img src="/static/img/sbbranco.webp" href="/" width="180"  alt="Logo"><!--lOGO AQUI-->
                 </a>
             
                 <div class="add">
@@ -86,25 +101,27 @@
                            
                             {% if user.is_authenticated %}
                             <li class="nav-item active">
-                                <a class="nav-link text-uppercase font-weight-light text-monospace">Bem vindo, colaborador!</span></a>
+                                <a style="color: #fff;" class="nav-link text-uppercase font-weight-light text-monospace">Bem vindo a sua Home!</span></a>
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link text-uppercase font-weight-light text-monospace" href="http://127.0.0.1:8000/admin/">Painel de controle</a>
+                                <a style="color: #fff;" class="nav-link text-uppercase font-weight-light text-monospace" href="https://control-interno.herokuapp.com/admin/">Painel de controle</a>
+                                <!--href="http://127.0.0.1:8000/admin/"-->
                             </li>
                               <!--Url de logout abaixo-->
                             {% if user.is_authenticated %}
                               <li class="nav-item">
-                                  <a class="nav-link text-uppercase font-weight-light text-monospace" href="/accounts/logout">Sair</a>
+                                  <a style="color: #fff;" class="nav-link text-uppercase font-weight-light text-monospace" href="/accounts/logout">Sair</a>
                               </li>
                             {% endif %}
                             
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link text-uppercase font-weight-light text-monospace" href="/accounts/login">Entrar</a>
+                                <a style="color: #fff;" class="nav-link" href="/accounts/login">Entrar</a>
                             </li>
 
                             {% endif %}
+
 
                         </ul>
                     
@@ -122,7 +139,7 @@
     <!--<p>Rodapé</p>-->
     <!-- Footer -->
 
-
+     
 
      <!--Import do js-->
      <script src="{% static 'js/scripts.js' %}" ></script>

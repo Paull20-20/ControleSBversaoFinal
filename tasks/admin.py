@@ -8,6 +8,7 @@ from .models import Task
 
 admin.site.register(Task)
 
-#feito os comandos acima, o task aparece lá na área admin
+#feito os comandos acima, as solicitações irá aparece lá na área admin
+
 
 
