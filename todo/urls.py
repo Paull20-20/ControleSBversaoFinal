@@ -23,7 +23,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     #url(r'^uploads/(?<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
-
+ 
     
 ] 
 
